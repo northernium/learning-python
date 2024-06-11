@@ -1,8 +1,9 @@
 '''
 Calculator Module
 '''
-print('Welcome to the python calculator')
-print('Disclaimer: This calculator only work for 2 number')
+print('Welcome to the python calculator V.2')
+print('Now this calculator has been upgraded to be able to operate with more than 2 numbers')
+print('Just type "done" when you finish to see the result')
 
 def add(f,s):
     '''Add'''
@@ -34,18 +35,41 @@ def multiple(f,s):
 
 def result(f,s):
     '''Calculation'''
-    if operation == '+':
+    if opr == '+':
         return add(f, s)
-    elif operation == '-':
+    elif opr == '-':
         return substrac(f,s)
-    elif operation == '*':
+    elif opr == '*':
         return multiple(f, s)
-    elif operation == '/':
+    elif opr == '/':
         return devide(f, s)
     else:
         return None
 
-firstnum = input('Input the first number: ')
-operation = input('Input the operation: ')
-secondnum = input('Input the second number: ')
-print("Result: ", result(firstnum, secondnum))
+while True: #Added while loop so user can input more than just one number
+    num1 = input('input number: ')
+    if num1 == 'done':
+        break
+    try:
+        x = result(x, num1)
+    except NameError:
+        None
+
+    opr = input('input operation: ')
+    if opr == 'done':
+        break
+
+    num2 = input('input number: ')
+    if num2 == 'done':
+        break
+
+    try:
+        x = result(x, num2)
+    except NameError:
+        x = result(num1, num2)
+
+    opr = input('input operation: ')
+    if opr == 'done':
+        break
+
+print ('result :' , x)
